@@ -5,6 +5,9 @@ from email.mime.text import MIMEText
 
 from django.conf import settings
 
+"""
+Getting mail server configuration from settings file
+"""
 
 from_email = settings.DEFAULT_FROM_EMAIL
 from_sender = settings.DEFAULT_FROM_SENDER
@@ -16,6 +19,10 @@ port_smtp = settings.PORT_SMTP
 
 def send_mail(sender=from_email, sender_name=from_sender, recipient=None, \
 				  subject='Message From Django Server', body_tex='', body_html=''):
+	"""
+		Mixin to automate mail sending from django server
+		Sending mail is complex some time, it's a simple snippet to sent mail including s3
+	"""
 
 	if recipient is None or not sender:
 		return
